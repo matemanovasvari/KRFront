@@ -1,13 +1,47 @@
-const btn = document.getElementById("btn");
-const container = document.getElementById("result");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI kalkulátor</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>BMI kalkulátor</h1>
+
+    <div>
+        <label for="">Height (cm)</label>
+        <input type="text" id="height">
+    </div>
+    <br>
+    <div>
+        <label for="">Weight (kg)</label>
+        <input type="text" id="weight">
+    </div>
+    <br>
+
+    <button id="btn">Calculate</button>
+
+    <div id="result">
+
+    </div>
+
+    <script>
+        const btn = document.getElementById("btn");
+        const container = document.getElementById("result");
 
 btn.addEventListener("click", () => {
     const height = Number(document.getElementById("height").value);
     const weight = Number(document.getElementById("weight").value);
     
-    const bmi = Math.round((weight / Math.pow(height,2)) * 100) / 100;
+    const bmi = weight / Math.pow(height,2);
 
-    if(bmi > 0 && bmi < 16){
+    if(bmi < 16){
         container.innerHTML = `You are: Súlyos soványság\n(BMI:${bmi})`;
     }
     else if(bmi >= 16 && bmi < 17){
@@ -32,3 +66,6 @@ btn.addEventListener("click", () => {
         container.innerHTML = `You are: Súlyosan elhízott (III. fokú)\n(BMI:${bmi})`;
     }
 });
+    </script>
+</body>
+</html>
