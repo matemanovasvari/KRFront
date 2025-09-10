@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hőmérséklet átváltó</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hőmérséklet Átváltó</h1>
+
+    <label for="">Adja meg a Celsius hőmérsékletet:</label>
+
+    <div>
+        <input type="number" id="celsius">
+        <button id="btn">Számítás</button>
+    </div>
+
+    <div id="result">
+
+    </div>
+
+    <script>
+        const btn = document.getElementById("btn");
+
+btn.addEventListener("click", () => {
+    const celsius = Number(document.getElementById("celsius").value);
+    let kelvin = celsius + 273.15;
+    let fahreinheit = (celsius * 1.8) + 32;
+    
+    document.getElementById("result").innerHTML = `<h2>${celsius}&deg;C = ${kelvin}&deg;K<h2><h2>${celsius}&deg;C = ${fahreinheit}&deg;F<h2>`
+});
+    </script>
+</body>
+</html>

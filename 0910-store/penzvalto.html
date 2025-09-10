@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pénzváltó</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pénzváltó</h1>
+
+    <input type="number" min="1" id="huf">
+    <br>
+    <br>
+
+    <button id="btn">Calculate</button>
+
+    <script>
+        if(localStorage.getItem("number")){
+            document.getElementById("huf").value = localStorage.getItem("number");
+        }
+
+        document.getElementById("btn").addEventListener("click", () => {
+            const huf = Number(document.getElementById("huf").value);
+
+            localStorage.setItem("number", huf);
+        });
+    </script>
+</body>
+</html>

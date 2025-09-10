@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pénzváltó</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pénzváltó</h1>
+
+    <div id="form">
+        <label for="">Pénzösszeg (HUF)</label>
+        <input type="text" id="huf">
+        <select id="select">
+            <option value="euro">Euro (€)</option>
+            <option value="dollar">Dollar ($)</option>
+        </select>
+    </div>
+    <br>
+
+    <button id="btn">Calculate</button>
+
+    <div id="result">
+
+    </div>
+
+    <script>
+        const btn = document.getElementById("btn");
+const container = document.getElementById("result");
+
+btn.addEventListener("click", () => {
+    const currency = document.getElementById("select").value;
+    const huf = Number(document.getElementById("huf").value);
+    let result = 0;
+    
+    if(currency === "euro"){
+        result = huf / 380;
+        container.innerHTML = `<p>${huf}Ft = ${result}€</p>`
+    }
+    else{
+        result = huf / 350;
+        container.innerHTML = `<p>${huf}Ft = ${result}$</p>`
+    }
+});
+    </script>
+</body>
+</html>
