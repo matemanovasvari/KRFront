@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Számológép</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Számológép</h1>
+
+    <div>
+        <input type="number" id="number1">
+        <select id="select">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" id="number2">
+    </div>
+    <br>
+
+    <button id="btn">Calculate</button>
+
+    <div id="result">
+
+    </div>
+
+    <script>
+        const container = document.getElementById("result");
+        let result = 0;
+
+        if(localStorage.getItem("operation") && localStorage.getItem("number1") && localStorage.getItem("number2") && localStorage.getItem("result")){
+            document.getElementById("select").value = localStorage.getItem("operation");
+            document.getElementById("number1").value = localStorage.getItem("number1");
+            document.getElementById("number2").value = localStorage.getItem("number2");
+            container.innerHTML = `Result is: ${localStorage.getItem("result")}`;
+        }
+
+        document.getElementById("btn").addEventListener("click", () => {
+            const operation = document.getElementById("select").value;
+            const number1 = Number(document.getElementById("number1").value);
+            const number2 = Number(document.getElementById("number2").value);
+            
+            if(operation === "+"){
+                result = number1 + number2;
+                container.innerHTML = `Result is: ${result}`;
+            }
+            else if(operation === "-"){
+                result = number1 - number2;
+                container.innerHTML = `Result is: ${result}`;
+            }
+            else if(operation === "*"){
+                result = number1 * number2;
+                container.innerHTML = `Result is: ${result}`;
+            }
+            else{
+                result = number1 / number2;
+                container.innerHTML = `Result is: ${result}`;
+            }
+
+            localStorage.setItem("result", result);
+            localStorage.setItem("number1", number1);
+            localStorage.setItem("number2", number2);
+            localStorage.setItem("operation", operation);
+        });
+
+
+    </script>
+</body>
+</html>
