@@ -1,10 +1,30 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const App = () => {
     const [input1, setInput1] = useState<number>(0);
     const [input2, setInput2] = useState<number>(0);
     const [operator, setOperator] = useState("+");
     const [result, setResult] = useState<number>();
+
+    useEffect(() => {
+        calculate();
+    }, [input1, input2, operator]);
+
+    const calculate = () => {
+        if(operator == "+"){
+            setResult(input1 + input2);
+        }
+        if (operator == "-") {
+            setResult(input1 - input2);
+        } 
+        if (operator == "*"){
+            setResult(input1 * input2);
+        }
+        if (operator == "/"){
+            setResult(input1 / input2);
+        }
+    }
 
     return <>
         <h2>Egyszerú számológép</h2>
@@ -25,21 +45,6 @@ const App = () => {
         <input type="number" onChange={(e) => {
             setInput2(Number(e.target.value));
         }}/>
-        <br />
-        <button onClick={() => {
-            if(operator == "+"){
-                setResult(input1 + input2);
-            }
-            if (operator == "-") {
-                setResult(input1 - input2);
-            } 
-            if (operator == "*"){
-                setResult(input1 * input2);
-            }
-            if (operator == "/"){
-                setResult(input1 / input2);
-            }
-        }}>Calculate</button>
         <br />
         Eredmény: {result}
     </>;
