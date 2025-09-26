@@ -5,9 +5,9 @@ function Home(){
         
         <>
             <Link to="/temperature"><button>Hőmérséklet átváltó</button></Link>
-            <button>Számológép</button>
-            <button>BMI kalkulátor</button>
-            <button>Pénzváltó</button>
+            <Link to="/calculator"><button>Számológép</button></Link>
+            <Link to="/bmi"><button>BMI kalkulátor</button></Link>
+            <Link to="/currency"><button>Pénzváltó</button></Link>
         </>
     )
 }

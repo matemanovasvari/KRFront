@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+*{
+  margin:0 5px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -31,6 +35,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#bmi, #calc, #currency, #temp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 h1 {
