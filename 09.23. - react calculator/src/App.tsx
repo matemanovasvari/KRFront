@@ -12,17 +12,22 @@ const App = () => {
     }, [input1, input2, operator]);
 
     const calculate = () => {
-        if(operator == "+"){
-            setResult(input1 + input2);
-        }
-        if (operator == "-") {
-            setResult(input1 - input2);
-        } 
-        if (operator == "*"){
-            setResult(input1 * input2);
-        }
-        if (operator == "/"){
-            setResult(input1 / input2);
+        switch(operator){
+            case "+":
+                setResult(input1 + input2);
+                break;
+            case "-":
+                setResult(input1 - input2);
+                break;
+            case "*":
+                setResult(input1 * input2);
+                break;
+            case "/":
+                setResult(input1 / input2);
+                break;
+            default:
+                setResult(input1 + input2);
+                break;
         }
     }
 
@@ -34,7 +39,6 @@ const App = () => {
         }}/>
         <select onChange={(e) => {
             setOperator(e.target.value);
-            console.log(e.target.value);
 
         }}>
             <option value="+">+</option>
