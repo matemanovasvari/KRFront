@@ -7,9 +7,10 @@ function App() {
   const [resultText, setResultText] = useState<String>("");
 
   useEffect(() => {
-    setResult((weight / ((height) * (height))) * 100);
+    const heightInMeter = height / 100;
+    setResult(weight / (heightInMeter * heightInMeter));
     console.log(result);
-  }, [height, weight])
+  }, [weight, height])
 
   return (
     <>
